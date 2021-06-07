@@ -18,11 +18,21 @@ export default {
         //
         Vue.prototype.$route = (routeName, params = {}) => {
 
+            //
             let route = routeArr[routeName];
 
             //
-            for (const [key, value] of Object.entries(params)) {
-                route = route.replace('{'+ key +'}', value);
+            if (typeof route !== 'undefined') {
+
+                //
+                for (const [key, value] of Object.entries(params)) {
+
+                    //
+                    route = route.replace('{'+ key +'}', value);
+                }
+            } else {
+
+                route = '#';
             }
 
             return route;
