@@ -4,7 +4,7 @@ Work in progress.
 
 Brings the Laravel route() functionality to your VueJs with just one attribute. That's it just so easy :)
 
-### With parameters
+### Without parameters
 
 Quick usage example without parameters:
 
@@ -19,7 +19,7 @@ In VueJs component:
 <a :href="$route('projects.index')">
 ```
 
-### Without parameters
+### With parameters
 
 Quick usage example with parameters:
 
@@ -37,7 +37,7 @@ In VueJs component:
 
 You can give an array v-routes to add multiple routes at once.
 
-### Multiple parameters
+### Multiple routes
 
 ```html
 <my-vue-component v-routes="{{ routes(['projects.index', 'projects.edit']) }}"></my-vue-component>
