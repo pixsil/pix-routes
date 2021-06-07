@@ -2,6 +2,8 @@
 
 Work in progress.
 
+### With parameters
+
 Quick usage example without parameters:
 
 ```html
@@ -14,6 +16,8 @@ In VueJs component:
 // this generates a full url
 <a :href="$route('projects.index')">
 ```
+
+### Without parameters
 
 Quick usage example with parameters:
 
@@ -31,6 +35,7 @@ In VueJs component:
 
 You can give an array v-routes to add multiple routes at once.
 
+### Multiple parameters
 
 ```html
 <my-vue-component v-routes="{{ routes(['projects.index', 'projects.edit']) }}"></my-vue-component>
