@@ -15,7 +15,7 @@ In VueJs component:
 <a :href="$route('projects.index')">
 ```
 
-Quick usage example without parameters:
+Quick usage example with parameters:
 
 ```html
 /* this route exepts paramter project id, no need to enter here */
