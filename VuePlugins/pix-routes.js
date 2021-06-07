@@ -35,7 +35,7 @@ export default {
                 route = '#';
             }
 
-            return route;
+            return '/'+ route;
         }
     }
 }
