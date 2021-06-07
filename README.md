@@ -2,7 +2,7 @@
 
 Work in progress.
 
-Getting your Laravel routes inside your VueJS components without any struggles. Works out of the box :)
+Brings the Laravel route() functionality to your VueJs with just one attribute. That's it just so easy :)
 
 ### With parameters
 
