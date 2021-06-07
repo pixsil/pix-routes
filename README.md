@@ -2,6 +2,8 @@
 
 Work in progress.
 
+Getting your Laravel routes inside your VueJS components without any struggles. Works out of the box :)
+
 ### With parameters
 
 Quick usage example without parameters:
