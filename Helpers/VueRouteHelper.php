@@ -7,7 +7,7 @@
             $returnArray = [];
 
             // make sure we have an array
-            $routeArray = is_array($routeArray) ?: [$routeArray];
+            $routeArray = is_array($routeArray) ? $routeArray : [$routeArray];
 
             $allRoutes = app('router')->getRoutes();
 
