@@ -2,7 +2,9 @@
 
 Work in progress.
 
-Brings the Laravel route() functionality to your VueJs with just one attribute. That's it just so easy :)
+Brings the Laravel route() functionality to your VueJs with just one attribute. You just have to use the attribute once on the first Vue Component and there is no need to repeat it for the child components.
+
+That's it just so easy :)
 
 ### Without parameters
 
