@@ -1,4 +1,4 @@
-// v1
+// v2
 
 export default {
 
@@ -8,11 +8,18 @@ export default {
         let routeArr = {};
 
         //
+        Vue.prototype.$setRoutes = (routes = {}) => {
+
+            routeArr = {...routeArr, ...routes}
+        }
+
+        //
         Vue.directive("routes", {
             bind: function (el, binding) {
+
                 //
                 routeArr = {...routeArr, ...binding.value}
-            }
+            },
         });
 
         //
@@ -29,6 +36,7 @@ export default {
 
                     //
                     route = route.replace('{'+ key +'}', value);
+
                 }
             } else {
 
