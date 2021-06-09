@@ -7,7 +7,7 @@ Brings the Laravel route() functionality to your VueJs with just one attribute. 
 That's it just so easy :)
 
 **Important note:**
-Some people noticed that the directive loads after the dom and that the routes in the templates are not set yet (This changed in VueJs 3). So for now I added a mixin that you can use on your first vue component that adds the routes to the prototype instead of the directive. For this to use, load the mixin and change the arguement v-routes="" to routes="".
+Some people noticed that the directive loads after the dom and that the routes in the templates are not set yet (this changed in VueJs 3). So for now I added a mixin that you can use on your first vue component that adds the routes to the prototype instead of the directive. For this to use, load the mixin and change the argument v-routes="" to routes="".
 
 ### Without parameters
 
