@@ -40,6 +40,8 @@ export default {
                 }
             } else {
 
+                console.log('Cannot find route: "'+ routeName +'". Make sure you added the mixin to your component.')
+                
                 route = '#';
             }
 
