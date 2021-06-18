@@ -1,11 +1,46 @@
 # pix-routes
 
+Brings the Laravel route() functionality to your VueJs with just one attribute. You just have to use the attribute once on the first Vue Component and there is no need to repeat it for the child components.
+
+Work in progress. Todo:
+- Make a global mixin and make sure it works with all chrildren (without double includes)
+
+### Usage
+
+Add the argument routes() to your top level VueJS component inside your blade file. Dont add any variables because we like to use dynamic variables from VueJs.
+
+```html
+<my-vue-component :routes="{{ routes('projects.edit') }}"></my-vue-component>
+```
+
+Then you can use the $route('project.edit', project) inside your VueJs component and its children. It is like the same as in Laravel.
+
+
+```js
+// this takes the id of the project object as paramter
+<a :href="$route('projects.edit', project)">
+
+// multiple paramters
+<a :href="$route('projects.edit', [country, project])">
+
+// no paramters
+<a :href="$route('projects.index')">
+
+// no paramters as string
+<a :href="$route('projects.index', project.id)">
+
+// no paramters as object
+<a :href="$route('projects.index', {poject: project.id})">
+```
+
+-- Below is old documentation --
+
 Work in progress. Todo:
 - Make a global mixin
 - Make sure it works with all chrildren
 - Update documentation
 
-Brings the Laravel route() functionality to your VueJs with just one attribute. You just have to use the attribute once on the first Vue Component and there is no need to repeat it for the child components.
+
 
 That's it just so easy :)
 
