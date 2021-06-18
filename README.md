@@ -17,7 +17,7 @@ Then you can use the $route('project.edit', project) inside your VueJs component
 
 
 ```js
-// this takes the id of the project object as paramter
+// this takes the id of the project object as parameter
 <a :href="$route('projects.edit', project)">
 
 // multiple paramters
