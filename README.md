@@ -29,7 +29,7 @@ Then you can use the $route('project.edit', project) inside your VueJs component
 // no paramters as string
 <a :href="$route('projects.index', project.id)">
 
-// no paramters as object
+// paramters as object
 <a :href="$route('projects.index', {poject: project.id})">
 ```
 
