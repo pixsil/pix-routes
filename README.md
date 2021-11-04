@@ -5,6 +5,19 @@ Brings the Laravel route() functionality to your VueJs with just one attribute. 
 Work in progress. Todo:
 - Make a global mixin and make sure it works with all chrildren (without double includes)
 
+## Donate
+
+Find this project useful? You can support me on Patreon
+
+https://www.patreon.com/pixsil
+
+## Installation (WIP)
+
+For a quick install, run this from your project root:
+```bash
+mkdir -p resources/js/tools/vue-routes
+```
+
 ### Usage
 
 Add the argument routes() to your top level VueJS component inside your blade file. Dont add any variables because we like to use dynamic variables from VueJs.
@@ -85,3 +98,5 @@ You can give an array v-routes to add multiple routes at once.
 ```html
 <my-vue-component v-routes="{{ routes(['projects.index', 'projects.edit']) }}"></my-vue-component>
 ```
+
+## Example (WIP)
