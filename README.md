@@ -18,6 +18,13 @@ For a quick install, run this from your project root:
 mkdir -p resources/js/tools/vue-routes
 ```
 
+Import the prototype js into your app.js file. And make it available in Vue:
+
+```javascript
+import PixRoutes from "./tools/pix-routes/pix-routes-v2-prototype";
+Vue.use(PixRoutes);
+```
+
 ### Usage
 
 Add the argument routes() to your top level VueJS component inside your blade file. Dont add any variables because we like to use dynamic variables from VueJs.
