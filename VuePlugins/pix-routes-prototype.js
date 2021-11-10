@@ -1,4 +1,4 @@
-// v6
+// v7
 
 export default {
 
@@ -76,7 +76,7 @@ export default {
                         lookupRoute = lookupRoute.replace('{'+ key +'}', value);
 
                     }
-                    
+
                     // @todo this object could not handle automaticly id. I you like to add this first make funcitons that handles single is
                     // break as many functions in smaller functions
                     // after that it also need to handle {project, country} and {project: project, country: county}
@@ -101,6 +101,10 @@ export default {
 
                     //
                     lookupRoute = lookupRoute.replace(/{{1}\w*}{1}/g, params);
+
+                    // remove all the optional parameters
+                    // because we only get one replacement the optional parameter isn't used
+                    lookupRoute = lookupRoute.replace(/[/]?{{1}\w*\?}{1}/g, '');
                 }
 
                 route = lookupRoute;
