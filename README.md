@@ -17,7 +17,7 @@ https://www.patreon.com/pixsil
 For a quick install, run this from your project root:
 ```bash
 mkdir -p resources/js/tools/pix-routes
-wget -O resources/js/tools/pix-routes/pix-routes-prototype.js https://raw.githubusercontent.com/pixsil/pix-routes/main/VuePlugins/pix-routes-prototype.js
+wget -O resources/js/tools/pix-routes/pix-routes.js https://raw.githubusercontent.com/pixsil/pix-routes/main/VuePlugins/pix-routes.js
 mkdir -p app/Http/Helpers/VueRouteHelper
 wget -O app/Http/Helpers/VueRouteHelper.php https://raw.githubusercontent.com/pixsil/pix-routes/main/Helpers/VueRouteHelper.php
 ```
