@@ -31,7 +31,7 @@ Vue.use(PixRoutes);
 
 In your general helper file
 
-```
+```php
 include('Helpers/VueRouteHelper.php');
 ```
 
