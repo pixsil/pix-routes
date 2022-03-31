@@ -1,4 +1,4 @@
-// v7
+// v8
 
 export default {
 
@@ -13,14 +13,24 @@ export default {
             routeArr = {...routeArr, ...routes}
         }
 
-        // barely used anymore
-        Vue.directive("routes", {
-            bind: function (el, binding) {
-
-                //
-                routeArr = {...routeArr, ...binding.value}
+        Vue.mixin({
+            props: {
+                routes: Object,
             },
-        });
+
+            created: function () {
+                this.$setRoutes(this.routes);
+            },
+        })
+
+        // v-routes directive doesnt work in VueJs2 (see documentation - important note)
+        // Vue.directive("routes", {
+        //     bind: function (el, binding) {
+        //
+        //         //
+        //         routeArr = {...routeArr, ...binding.value}
+        //     },
+        // });
 
         //
         Vue.prototype.$route = (routeName, params) => {
