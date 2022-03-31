@@ -63,19 +63,12 @@ Then you can use the $route('project.edit', project) inside your VueJs component
 <a :href="$route('projects.index', {poject: project.id})">
 ```
 
--- Below is old documentation --
+### Why not using v-directive instead of parameter/mixins
 
-Work in progress. Todo:
-- Make a global mixin
-- Make sure it works with all chrildren
-- Update documentation
+The v-directive is in VueJs 2 loaded after the dom when the routes in the templates are not set yet (this changed in VueJs 3). So for this reason it is using a global mixin that adds the routes to the prototype instead of the directive. For this to use.
 
 
-
-That's it just so easy :)
-
-**Important note:**
-Some people noticed that the directive loads after the dom and that the routes in the templates are not set yet (this changed in VueJs 3). So for now I added a mixin that you can use on your first vue component that adds the routes to the prototype instead of the directive. For this to use, load the mixin and change the argument v-routes="" to routes="".
+# Old documentation
 
 ### Without parameters
 
