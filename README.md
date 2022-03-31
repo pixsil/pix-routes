@@ -2,8 +2,9 @@
 
 Brings the Laravel route() functionality to your VueJs with just one attribute. You just have to use the attribute once on the first Vue Component and there is no need to repeat it for the child components.
 
-Work in progress. Todo:
-- Make a global mixin and make sure it works with all chrildren (without double includes)
+Its works as follows. There is a prototype which keeps all routes set on different components. The prototype got the function $route to dig in its local storage to find if the route is set.
+
+The prototype is filles by a global mixin that loads on all the components. It is just passing the routes givin to the component attribute to the prototype.
 
 ## Donate
 
@@ -16,7 +17,6 @@ https://www.patreon.com/pixsil
 For a quick install, run this from your project root:
 ```bash
 mkdir -p resources/js/tools/pix-routes
-wget -O resources/js/tools/pix-routes/pix-routes-mixin.js https://raw.githubusercontent.com/pixsil/pix-routes/main/VuePlugins/pix-routes-mixin.js
 wget -O resources/js/tools/pix-routes/pix-routes-prototype.js https://raw.githubusercontent.com/pixsil/pix-routes/main/VuePlugins/pix-routes-prototype.js
 mkdir -p app/Http/Helpers/VueRouteHelper
 wget -O app/Http/Helpers/VueRouteHelper.php https://raw.githubusercontent.com/pixsil/pix-routes/main/Helpers/VueRouteHelper.php
