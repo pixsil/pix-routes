@@ -12,7 +12,7 @@ Find this project useful? You can support me on Patreon
 
 https://www.patreon.com/pixsil
 
-## Installation (WIP)
+## Installation
 
 For a quick install, run this from your project root:
 ```bash
