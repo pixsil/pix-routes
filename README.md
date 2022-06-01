@@ -25,7 +25,7 @@ wget -O app/Http/Helpers/VueRouteHelper.php https://raw.githubusercontent.com/pi
 Import the prototype js into your app.js file. And make it available in Vue:
 
 ```javascript
-import PixRoutes from "./tools/pix-routes/pix-routes-prototype";
+import PixRoutes from "./tools/pix-routes/pix-routes";
 Vue.use(PixRoutes);
 ```
 
