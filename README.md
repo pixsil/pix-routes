@@ -8,9 +8,9 @@ The prototype is filles by a global mixin that loads on all the components. It i
 
 ## Donate
 
-Find this project useful? You can support me on Patreon
+Find this project useful? You can support me with a Paypal donation:
 
-https://www.patreon.com/pixsil
+[Make Paypal Donation](https://www.paypal.com/donate/?hosted_button_id=2XCS6R3CTC5BA)
 
 ## Installation
 
