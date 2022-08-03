@@ -1,4 +1,4 @@
-// v8
+// v9
 
 export default {
 
@@ -79,32 +79,7 @@ export default {
                 // object
                 } else if (typeof params === 'object' && params !== null) {
 
-                    //
-                    for (const [key, value] of Object.entries(params)) {
-
-                        //
-                        lookupRoute = lookupRoute.replace('{'+ key +'}', value);
-
-                    }
-
-                    // @todo this object could not handle automaticly id. I you like to add this first make funcitons that handles single is
-                    // break as many functions in smaller functions
-                    // after that it also need to handle {project, country} and {project: project, country: county}
-
-                    // a small start:
-                    // if we got an object with a single project to take the id from it
-                    // if (typeof params["id"] !== 'undefined') {
-                    //     //lookupRoute = lookupRoute.replace('{'+ key +'}', value);
-                    //     // if we got an object with multiple parameters: { project: 20, country: 12 }
-                    // } else {
-                    //     // replace all the given objects in the routes
-                    //     // {project} in projects/{project}
-                    //     for (const [key, value] of Object.entries(params)) {
-                    //         console.log(lookupRoute);
-                    //         //
-                    //         lookupRoute = lookupRoute.replace('{'+ key +'}', value);
-                    //     }
-                    // }
+                    lookupRoute = this.handleObject(routeName, lookupRoute, params)
 
                 // string
                 } else if (typeof params == 'number' || typeof params == 'string') {
@@ -126,5 +101,26 @@ export default {
 
             return '/'+ route;
         }
-    }
+    },
+
+    // handle Object is to handle multiple replace values, not for putting an Object inside
+    // we cannot recognize the difference of an object with multiple values or a record object
+    handleObject(routeName, lookupRoute, object) {
+
+        //
+        for (const [key, value] of Object.entries(object)) {
+
+            // guard undefined
+            if (typeof value === 'undefined') {
+                console.log('The variable "'+ key +'" in the route object "'+ routeName +'" is undefined or an object.');
+                return lookupRoute
+            }
+
+            //
+            lookupRoute = lookupRoute.replace('{'+ key +'}', value);
+
+        }
+
+        return lookupRoute
+    },
 }
