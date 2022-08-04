@@ -41,6 +41,14 @@ Add somewhere inside your blade page the following component:
 <pix-routes :routes="{{ vueRoutes() }}"></pix-routes>
 ```
 
+Add the following to the app service provider boot function:
+```php
+Route::macro('vue', function() {
+    $this->router->vueRouteArr[$this->getName()] = $this->uri();
+    return $this;
+});
+```
+
 ### Usage
 
 You can use the vueRoute() function in your web like this:
