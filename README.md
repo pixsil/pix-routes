@@ -4,8 +4,6 @@ Brings the Laravel route() functionality to your VueJs with just one attribute. 
 
 Its works as follows. There is a prototype which keeps all routes set on different components. The prototype got the function $route to dig in its local storage to find if the route is set.
 
-The prototype is filles by a global mixin that loads on all the components. It is just passing the routes givin to the component attribute to the prototype.
-
 ## Donate
 
 Find this project useful? You can support me with a Paypal donation:
@@ -18,6 +16,8 @@ For a quick install, run this from your project root:
 ```bash
 mkdir -p resources/js/tools/pix-routes
 wget -O resources/js/tools/pix-routes/pix-routes.js https://raw.githubusercontent.com/pixsil/pix-routes/main/VuePlugins/pix-routes.js
+mkdir -p resources/js/tools/pix-routes
+wget -O resources/js/tools/pix-routes/pix-routes.vue https://raw.githubusercontent.com/pixsil/pix-routes/main/VuePlugins/pix-routes.vue
 mkdir -p app/Http/Helpers/VueRouteHelper
 wget -O app/Http/Helpers/VueRouteHelper.php https://raw.githubusercontent.com/pixsil/pix-routes/main/Helpers/VueRouteHelper.php
 ```
@@ -35,15 +35,21 @@ In your general helper file
 include('Helpers/VueRouteHelper.php');
 ```
 
-### Usage
-
-Add the argument routes() to your top level VueJS component inside your blade file. Dont add any variables because we like to use dynamic variables from VueJs.
+Add somewhere inside your blade page the following component:
 
 ```html
-<my-vue-component :routes="{{ routes('projects.edit') }}"></my-vue-component>
+<pix-routes :routes="{{ vueRoutes() }}"></pix-routes>
 ```
 
-Then you can use the $route('project.edit', project) inside your VueJs component and its children. It is like the same as in Laravel.
+### Usage
+
+You can use the vueRoute() function in your web like this:
+
+```php
+Route::get('orders', [OrderApiController::class, 'index'])->name('api.orders')->vueRoute();
+```
+
+Then you can use the $route('project.edit', project) inside your VueJs components. It's like the same as in Laravel.
 
 
 ```js
@@ -62,6 +68,20 @@ Then you can use the $route('project.edit', project) inside your VueJs component
 // paramters as object
 <a :href="$route('projects.index', {poject: project.id})">
 ```
+
+### Old way of doing
+
+Before the routes where added to the first component in the blade page. With a global mixin they where passed on to the child components.
+
+If you comment out the mixin in the js file, you can still use this functionality. This works as follows:
+
+Add the argument routes() to your top level VueJS component inside your blade file. Dont add any variables because we like to use dynamic variables from VueJs.
+
+```html
+<my-vue-component :routes="{{ routes('projects.edit') }}"></my-vue-component>
+```
+
+The rest works the same.
 
 ### Why not using v-directive instead of parameter/mixins
 
