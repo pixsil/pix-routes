@@ -1,8 +1,14 @@
 # pix-routes
 
-Brings the Laravel route() functionality to your VueJs with just one attribute. You just have to use the attribute once on the first Vue Component and there is no need to repeat it for the child components.
+Bring Laravel routes to vueJS with just adding ```->vue()``` to it!
 
-Its works as follows. There is a prototype which keeps all routes set on different components. The prototype got the function $route to dig in its local storage to find if the route is set.
+Then use the Laravel route() function inside your VueJs Component:
+
+```php
+$route('orders.view', order.id)
+```
+
+It's like magic!
 
 ## Donate
 
@@ -54,7 +60,7 @@ Route::macro('vue', function() {
 You can use the vueRoute() function in your web like this:
 
 ```php
-Route::get('orders', [OrderApiController::class, 'index'])->name('api.orders')->vueRoute();
+Route::get('orders', [OrderApiController::class, 'index'])->name('api.orders')->vue();
 ```
 
 Then you can use the $route('project.edit', project) inside your VueJs components. It's like the same as in Laravel.
