@@ -1,8 +1,12 @@
-// v9
+// v10
+
+import PixRoutes from './pix-routes';
 
 export default {
 
     install(Vue, options) {
+
+        Vue.component('pix-routes', PixRoutes);
 
         //
         let routeArr = {};
@@ -13,15 +17,16 @@ export default {
             routeArr = {...routeArr, ...routes}
         }
 
-        Vue.mixin({
-            props: {
-                routes: Object,
-            },
-
-            created: function () {
-                this.$setRoutes(this.routes);
-            },
-        })
+        // this is not a global mixin anymore, if you like you can make a mixin from it to import it once when needed
+        // Vue.mixin({
+        //     props: {
+        //         routes: Object,
+        //     },
+        //
+        //     created: function () {
+        //         this.$setRoutes(this.routes);
+        //     },
+        // })
 
         // v-routes directive doesnt work in VueJs2 (see documentation - important note)
         // Vue.directive("routes", {
