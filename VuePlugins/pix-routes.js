@@ -1,4 +1,4 @@
-// v10
+// v10.1
 
 import PixRoutes from './pix-routes';
 
@@ -100,8 +100,8 @@ export default {
                 route = lookupRoute;
 
             } else {
-
-                console.log('Cannot find route: "'+ routeName +'". Make sure you added the mixin to your component.')
+                
+                console.log('Cannot find route: "'+ routeName +'". Make sure you added vue() to the Laravel route.')
             }
 
             return '/'+ route;
