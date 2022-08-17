@@ -1,6 +1,6 @@
 <?php
 
-// v2
+// v3
 
 use Illuminate\Routing\Router;
 
@@ -8,7 +8,7 @@ use Illuminate\Routing\Router;
 if (!function_exists('vueRoutes')) {
     function vueRoutes()
     {
-        return json_encode(app('router')->vueRouteArr);
+        return json_encode(app('router')->vueRouteArr ?? []);
     }
 }
 
