@@ -49,6 +49,8 @@ Add somewhere inside your blade page the following component:
 
 Add the following to the app service provider boot function:
 ```php
+use Illuminate\Routing\Route;
+
 Route::macro('vue', function() {
     $this->router->vueRouteArr[$this->getName()] = $this->uri();
     return $this;
