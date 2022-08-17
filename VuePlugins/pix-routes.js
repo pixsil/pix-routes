@@ -1,6 +1,6 @@
 // v10.1
 
-import PixRoutes from './pix-routes';
+import PixRoutes from './pix-routes.vue';
 
 export default {
 
