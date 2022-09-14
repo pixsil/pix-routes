@@ -41,7 +41,7 @@ In your general helper file
 include('Helpers/VueRouteHelper.php');
 ```
 
-Add somewhere inside your blade page the following component:
+Add this element to your mountable app div. Must be above rendering components.
 
 ```html
 <pix-routes :routes="{{ vueRoutes() }}"></pix-routes>
