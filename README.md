@@ -32,7 +32,7 @@ Import the prototype js into your app.js file. And make it available in Vue:
 
 ```javascript
 import PixRoutes from "./tools/pix-routes/pix-routes";
-Vue.use(PixRoutes);
+app.use(PixRoutes);
 ```
 
 In your general helper file
