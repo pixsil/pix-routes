@@ -1,24 +1,27 @@
-// v10.1
+// v11 VueJS 3
 
 import PixRoutes from './pix-routes.vue';
 
 export default {
 
-    install(Vue, options) {
+    install(app, options) {
 
-        Vue.component('pix-routes', PixRoutes);
+        app.component('pix-routes', PixRoutes);
 
         //
         let routeArr = {};
 
         //
-        Vue.prototype.$setRoutes = (routes = {}) => {
+        function setRoutes(routes = {}) {
 
             routeArr = {...routeArr, ...routes}
         }
 
+        app.config.globalProperties.$setRoutes = setRoutes;
+
+
         // this is not a global mixin anymore, if you like you can make a mixin from it to import it once when needed
-        // Vue.mixin({
+        // app.mixin({
         //     props: {
         //         routes: Object,
         //     },
@@ -29,7 +32,7 @@ export default {
         // })
 
         // v-routes directive doesnt work in VueJs2 (see documentation - important note)
-        // Vue.directive("routes", {
+        // app.directive("routes", {
         //     bind: function (el, binding) {
         //
         //         //
@@ -38,7 +41,7 @@ export default {
         // });
 
         //
-        Vue.prototype.$route = (routeName, params) => {
+        function route(routeName, params) {
 
             //
             let route = '#';
@@ -100,12 +103,15 @@ export default {
                 route = lookupRoute;
 
             } else {
-                
+
                 console.log('Cannot find route: "'+ routeName +'". Make sure you added vue() to the Laravel route.')
             }
 
             return '/'+ route;
         }
+
+        // make route function available
+        app.config.globalProperties.$route = route;
     },
 
     // handle Object is to handle multiple replace values, not for putting an Object inside
