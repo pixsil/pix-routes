@@ -1,3 +1,4 @@
+// v11.1 Added extra information about dash
 // v11 VueJS 3
 
 import PixRoutes from './pix-routes.vue';
@@ -92,7 +93,8 @@ export default {
                 // string
                 } else if (typeof params == 'number' || typeof params == 'string') {
 
-                    //
+                    // replace parameter
+                    // in Laravel - (dash) is not allowed as parameter, so we also do not add it
                     lookupRoute = lookupRoute.replace(/{{1}\w*}{1}/g, params);
 
                     // remove all the optional parameters
