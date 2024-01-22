@@ -7,7 +7,7 @@ export default {
 
     install(app, options) {
 
-        app.component('pix-routes', PixRoutes);
+        // app.component('pix-routes', PixRoutes);
 
         //
         let routeArr = {};
