@@ -1,3 +1,4 @@
+// v12 Commenting out app.component
 // v11.1 Added extra information about dash
 // v11 VueJS 3
 
