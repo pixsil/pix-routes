@@ -1,3 +1,4 @@
+// v13 Fixing the handleObject for VueJs3
 // v12 Commenting out app.component
 // v11.1 Added extra information about dash
 // v11 VueJS 3
@@ -17,6 +18,26 @@ export default {
         function setRoutes(routes = {}) {
 
             routeArr = {...routeArr, ...routes}
+        }
+
+        // handle Object is to handle multiple replace values, not for putting an Object inside
+        // we cannot recognize the difference of an object with multiple values or a record object
+        function handleObject(routeName, lookupRoute, object) {
+            //
+            for (const [key, value] of Object.entries(object)) {
+
+                // guard undefined
+                if (typeof value === 'undefined') {
+                    console.log('The variable "'+ key +'" in the route object "'+ routeName +'" is undefined or an object.');
+                    return lookupRoute
+                }
+
+                //
+                lookupRoute = lookupRoute.replace('{'+ key +'}', value);
+
+            }
+
+            return lookupRoute
         }
 
         app.config.globalProperties.$setRoutes = setRoutes;
@@ -89,7 +110,7 @@ export default {
                 // object
                 } else if (typeof params === 'object' && params !== null) {
 
-                    lookupRoute = this.handleObject(routeName, lookupRoute, params)
+                    lookupRoute = handleObject(routeName, lookupRoute, params)
 
                 // string
                 } else if (typeof params == 'number' || typeof params == 'string') {
@@ -115,26 +136,5 @@ export default {
 
         // make route function available
         app.config.globalProperties.$route = route;
-    },
-
-    // handle Object is to handle multiple replace values, not for putting an Object inside
-    // we cannot recognize the difference of an object with multiple values or a record object
-    handleObject(routeName, lookupRoute, object) {
-
-        //
-        for (const [key, value] of Object.entries(object)) {
-
-            // guard undefined
-            if (typeof value === 'undefined') {
-                console.log('The variable "'+ key +'" in the route object "'+ routeName +'" is undefined or an object.');
-                return lookupRoute
-            }
-
-            //
-            lookupRoute = lookupRoute.replace('{'+ key +'}', value);
-
-        }
-
-        return lookupRoute
     },
 }
